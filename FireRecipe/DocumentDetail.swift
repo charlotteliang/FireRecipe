@@ -18,7 +18,7 @@ struct DocumentDetail: View {
         Text("Cook time: \(recipe.time) minutes.")
         
         NavigationLink("Ingredients") {
-          IngredientDetail(ingredients:recipe.ingredients)
+          IngredientDetail(recipeName:recipe.name, ingredients: recipe.ingredients)
         }
         Spacer()
         Text("Steps").font(.title2)
@@ -37,7 +37,7 @@ struct DocumentDetail: View {
 
 struct DocumentDetail_Previews: PreviewProvider {
     static var previews: some View {
-      DocumentDetail(recipe:Recipe(id: "test", name: "test", time: 0, steps: [], ingredients: [], type: "test"))
+      DocumentDetail(recipe:Recipe(id: "test", name: "test", time: 0, steps: [], ingredients: [:], type: "test"))
     }
 }
 

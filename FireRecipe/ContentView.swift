@@ -4,12 +4,12 @@ import FirebaseAnalytics
 import FirebaseFirestoreSwift
 import SwiftUI
 
-struct Recipe: Codable, Hashable {
+struct Recipe: Identifiable, Hashable, Decodable, Encodable {
   @DocumentID var id: String?
   var name: String
   var time: Int
   var steps: [String]
-  var ingredients: [String]
+  var ingredients: [String: Bool]
   var type: String
 }
 
@@ -23,7 +23,6 @@ struct ContentView: View {
         List(recipes, id: \.self) { recipe in
           HStack {
             Image(systemName:"fork.knife")
-            
             NavigationLink(recipe.name, value: recipe)
           }
         }
