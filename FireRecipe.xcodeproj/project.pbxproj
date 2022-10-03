@@ -13,6 +13,8 @@
 		513A032128E4F3B600CDF5E0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 513A032028E4F3B600CDF5E0 /* Preview Assets.xcassets */; };
 		513A032928E4F59500CDF5E0 /* DocumentDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 513A032828E4F59500CDF5E0 /* DocumentDetail.swift */; };
 		513A033128E50A2400CDF5E0 /* IngredientDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 513A033028E50A2400CDF5E0 /* IngredientDetail.swift */; };
+		513A033728E65F9400CDF5E0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 513A033628E65F9400CDF5E0 /* GoogleService-Info.plist */; };
+		51C3F53A28E7C904006BB945 /* RecipeImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C3F53928E7C904006BB945 /* RecipeImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +27,8 @@
 		513A032E28E502D200CDF5E0 /* FireRecipe.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FireRecipe.entitlements; sourceTree = "<group>"; };
 		513A032F28E502F000CDF5E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		513A033028E50A2400CDF5E0 /* IngredientDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientDetail.swift; sourceTree = "<group>"; };
+		513A033628E65F9400CDF5E0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		51C3F53928E7C904006BB945 /* RecipeImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +45,7 @@
 		513A030D28E4F3B400CDF5E0 = {
 			isa = PBXGroup;
 			children = (
+				51C3F53928E7C904006BB945 /* RecipeImageView.swift */,
 				513A031828E4F3B400CDF5E0 /* FireRecipe */,
 				513A031728E4F3B400CDF5E0 /* Products */,
 				93E762B9CB423DE96D0E2BC8 /* Pods */,
@@ -59,6 +64,7 @@
 			isa = PBXGroup;
 			children = (
 				513A032F28E502F000CDF5E0 /* Info.plist */,
+				513A033628E65F9400CDF5E0 /* GoogleService-Info.plist */,
 				513A032E28E502D200CDF5E0 /* FireRecipe.entitlements */,
 				513A032828E4F59500CDF5E0 /* DocumentDetail.swift */,
 				513A033028E50A2400CDF5E0 /* IngredientDetail.swift */,
@@ -148,6 +154,7 @@
 			files = (
 				513A032128E4F3B600CDF5E0 /* Preview Assets.xcassets in Resources */,
 				513A031E28E4F3B600CDF5E0 /* Assets.xcassets in Resources */,
+				513A033728E65F9400CDF5E0 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -160,6 +167,7 @@
 			files = (
 				513A031C28E4F3B400CDF5E0 /* ContentView.swift in Sources */,
 				513A033128E50A2400CDF5E0 /* IngredientDetail.swift in Sources */,
+				51C3F53A28E7C904006BB945 /* RecipeImageView.swift in Sources */,
 				513A031A28E4F3B400CDF5E0 /* FireRecipeApp.swift in Sources */,
 				513A032928E4F59500CDF5E0 /* DocumentDetail.swift in Sources */,
 			);

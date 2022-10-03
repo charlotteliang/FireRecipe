@@ -12,7 +12,8 @@ class AppDelegate: NSObject, UIApplicationDelegate {
                    ]? = nil) -> Bool {
     FirebaseApp.configure()
                      
-    phoneSignIn()
+    //phoneSignIn()
+    anonymousSignIn()
     return true
   }
   
@@ -96,7 +97,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
       }
     }
   }
-  
+  /// Signs in anonymously
   func anonymousSignIn() {
     if Auth.auth().currentUser == nil {
       Auth.auth().signInAnonymously()
@@ -115,10 +116,14 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 @main
 struct FireRecipeApp: App {
   @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
-
-    var body: some Scene {
-        WindowGroup {
-            ContentView()
-        }
+  
+  var body: some Scene {
+    WindowGroup {
+      ContentView()
+        .analyticsScreen(name: "ContentView")
     }
+  }
 }
+
+
+
