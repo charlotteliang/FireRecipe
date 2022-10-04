@@ -18,6 +18,7 @@ target 'FireRecipe' do
   pod 'FirebaseRemoteConfig', :path => '../github/firebase-ios-sdk/'
   pod 'FirebaseRemoteConfigSwift', :path => '../github/firebase-ios-sdk/'
   pod 'FirebaseSharedSwift', :path => '../github/firebase-ios-sdk/'
+  pod 'FirebaseStorage', :path => '../github/firebase-ios-sdk/'
   pod 'FirebaseFirestore', :path => '../github/firebase-ios-sdk/'
   pod 'FirebaseFirestoreSwift', :path => '../github/firebase-ios-sdk/'
   pod 'FirebaseABTesting', :path => '../github/firebase-ios-sdk'

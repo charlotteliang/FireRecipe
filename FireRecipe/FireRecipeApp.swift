@@ -14,6 +14,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
                      
     //phoneSignIn()
     anonymousSignIn()
+    setupRC()
     return true
   }
   
@@ -66,34 +67,10 @@ class AppDelegate: NSObject, UIApplicationDelegate {
       )
 
       // Phone Auth
-      Auth.auth().signIn(with: credential as! PhoneAuthCredential) { authResult, error in
+      Auth.auth().signIn(with: credential) { authResult, error in
           if let error = error {
-            let authError = error as! NSError
-            if authError.code == AuthErrorCode.secondFactorRequired.rawValue {
-              // The user is a multi-factor user. Second factor challenge is required.
-//              let resolver = error.userInfo?[AuthUpdatedCredentialKey] as! MultiFactorResolver
-//                      if resolver.hints[0].factorId == TotpMultiFactorID {
-//                          // Show hints resolver.multiFactorInfo to user for selection.
-//                          let assertion = TotpMultiFactorGenerator.assertionForSignIn(withEnrollmentId: hints[0].uid, oneTimePassword: oneTimePassword)
-//                          resolver.resolveSignIn(
-//                              withAssertion: assertion) { authResult, error in
-//                              if error != nil {
-//                                  // Error occurred.
-//                              } else {
-//                                  // Successfully signed in.
-//                              }
-//                          }
-//                      } else {
-//                          // Some other error.
-//                      }
-
-            } else {
-              return
-            }
-            // ...
-            return
+            print(error)
           }
-           
       }
     }
   }

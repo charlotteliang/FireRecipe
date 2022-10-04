@@ -28,6 +28,7 @@ struct ContentView: View {
   
   @FirestoreQuery(collectionPath: "Recipes") var recipes: [Recipe]
   private var twoColumnGrid = [GridItem(.flexible()), GridItem(.flexible())]
+  @State private var cachedImages : ImageCache = ImageCache()
     
   var body: some View {
     VStack {
@@ -40,7 +41,7 @@ struct ContentView: View {
                   destination: DocumentDetail(recipe:recipe).analyticsScreen(name: recipe.type),
                   label: {
                     VStack {
-                      RecipeImageView(name: recipe.image).frame(width: 180, height: 160)
+                      RecipeImageView(name: recipe.name).frame(width: 180, height: 160)
                       Text(recipe.name)
                     }
                   }
@@ -50,7 +51,7 @@ struct ContentView: View {
             .padding(.horizontal)
           }.navigationTitle("FireRecipe 😋")
         }
-      }
+      }.environmentObject(cachedImages)
     }
   }
 }

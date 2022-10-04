@@ -40,7 +40,10 @@ struct IngredientDetail: View {
     }
     
     Button(action: fetchAndActivate) {
-      Image(systemName: "sunrise")
+      HStack {
+        Image(systemName: "sunrise")
+        Text("Activate (Testing)")
+      }
     }
   }
   
