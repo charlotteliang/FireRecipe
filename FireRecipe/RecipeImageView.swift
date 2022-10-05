@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import FirebaseCore
 import FirebaseStorage
 
 class ImageCache : ObservableObject {
