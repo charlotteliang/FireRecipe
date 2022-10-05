@@ -40,7 +40,7 @@ struct RecipeImageView: View {
       return
     }
     let ref = Storage.storage().reference(withPath: "\(self.name).jpg")
-    ref.getData(maxSize: 2*1024*1024) { data, error in
+    ref.getData(maxSize: 4*1024*1024) { data, error in
       if let error = error {
         print(error)
       } else {

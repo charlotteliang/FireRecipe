@@ -15,7 +15,6 @@
 		513A033128E50A2400CDF5E0 /* IngredientDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 513A033028E50A2400CDF5E0 /* IngredientDetail.swift */; };
 		513A033728E65F9400CDF5E0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 513A033628E65F9400CDF5E0 /* GoogleService-Info.plist */; };
 		51C3F53A28E7C904006BB945 /* RecipeImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C3F53928E7C904006BB945 /* RecipeImageView.swift */; };
-		51C3F54028EB80F6006BB945 /* CachedAsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C3F53F28EB80F6006BB945 /* CachedAsyncImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,7 +29,6 @@
 		513A033028E50A2400CDF5E0 /* IngredientDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientDetail.swift; sourceTree = "<group>"; };
 		513A033628E65F9400CDF5E0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		51C3F53928E7C904006BB945 /* RecipeImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeImageView.swift; sourceTree = "<group>"; };
-		51C3F53F28EB80F6006BB945 /* CachedAsyncImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CachedAsyncImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,7 +66,6 @@
 				513A032F28E502F000CDF5E0 /* Info.plist */,
 				513A033628E65F9400CDF5E0 /* GoogleService-Info.plist */,
 				513A032E28E502D200CDF5E0 /* FireRecipe.entitlements */,
-				51C3F53F28EB80F6006BB945 /* CachedAsyncImage.swift */,
 				513A032828E4F59500CDF5E0 /* DocumentDetail.swift */,
 				513A033028E50A2400CDF5E0 /* IngredientDetail.swift */,
 				513A031928E4F3B400CDF5E0 /* FireRecipeApp.swift */,
@@ -169,7 +166,6 @@
 				513A033128E50A2400CDF5E0 /* IngredientDetail.swift in Sources */,
 				51C3F53A28E7C904006BB945 /* RecipeImageView.swift in Sources */,
 				513A031A28E4F3B400CDF5E0 /* FireRecipeApp.swift in Sources */,
-				51C3F54028EB80F6006BB945 /* CachedAsyncImage.swift in Sources */,
 				513A032928E4F59500CDF5E0 /* DocumentDetail.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

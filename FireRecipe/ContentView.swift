@@ -4,7 +4,7 @@ import FirebaseAnalytics
 import FirebaseFirestoreSwift
 import SwiftUI
 
-struct Recipe: Identifiable, Hashable, Decodable, Encodable {
+struct Recipe: Identifiable, Hashable, Codable {
   @DocumentID var id: String?
   var name: String
   var time: Int
@@ -41,9 +41,9 @@ struct ContentView: View {
                   destination: DocumentDetail(recipe:recipe).analyticsScreen(name: recipe.type),
                   label: {
                     VStack {
-                      RecipeImageView(name: recipe.name).frame(width: 180, height: 160)
+                      RecipeImageView(name: recipe.name)
                       Text(recipe.name)
-                    }
+                    }.frame(width: 180, height: 200)
                   }
                 ).buttonStyle(PlainButtonStyle())
               }

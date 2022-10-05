@@ -89,7 +89,6 @@ class AppDelegate: NSObject, UIApplicationDelegate {
   }
 }
 
-
 @main
 struct FireRecipeApp: App {
   @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
