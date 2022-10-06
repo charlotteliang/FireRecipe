@@ -28,18 +28,31 @@ struct RecipeDetailsView2: View {
       Image("avocado_toast")
         .resizable()
         .scaledToFit()
-      Text("You just found an easter egg ;-)")
+        .opacity(100)
+        .overlay(alignment: .topLeading) {
+          Button(action: {}) {
+            Image(systemName: "xmark")
+              .font(.title)
+              .foregroundColor(Color(UIColor.systemGray))
+              .padding(8)
+              .background(.regularMaterial, in: RoundedRectangle(cornerRadius: 8))
+          }
+          .padding(.top, 40)
+          .padding(.leading, 20)
+        }
       Spacer()
     }
-    .ignoresSafeArea()
-    .sheet(isPresented: $presentSheet) {
-      RecipeView(recipe: recipe) {
-        presentSheet = false
-        dismiss()
+    .overlay {
+      VStack {
+        Spacer()
+          .frame(height: 250)
+        RecipeView(recipe: recipe)
+          .background(Color(UIColor.systemBackground))
+          .cornerRadius(16)
       }
-        .interactiveDismissDisabled()
-        .presentationDetents([.fraction(0.75)])
     }
+    .ignoresSafeArea()
+    .navigationBarBackButtonHidden()
   }
 }
 
@@ -50,15 +63,10 @@ enum RecipeSection : String, CaseIterable {
 
 struct RecipeView: View {
   var recipe: Recipe
-  var callback: (() -> ())?
   @State private var sectionSelection = RecipeSection.ingredients
-
 
   var body: some View {
     VStack {
-      Button("BACK") {
-        callback?()
-      }
       RecipeTitleView(recipe: recipe)
         .padding(20)
       Picker("", selection: $sectionSelection) {
