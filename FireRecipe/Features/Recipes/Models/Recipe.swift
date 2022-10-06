@@ -21,11 +21,18 @@ import FirebaseFirestoreSwift
 struct Recipe {
   @DocumentID var id: String?
   var name: String
+  var description: String?
   var time: Int
   var steps: [String]
-  var ingredients: [String: Bool]
+  var ingredients: [Ingredient]
   var type: String
   var image: String
+}
+
+struct Ingredient {
+  var name: String
+  var quantity: Double
+  var unit: String
 }
 
 extension Recipe: Codable, Identifiable, Equatable {
@@ -38,15 +45,32 @@ extension Recipe: Hashable {
   }
 }
 
+extension Ingredient: Codable, Equatable {
+}
+
+extension Ingredient: Hashable {
+  func hash(into hasher: inout Hasher) {
+    hasher.combine(name)
+  }
+}
+
+
 extension Recipe {
   static let samples = [
-    Recipe(name: "Daal", time: 20,
-           steps: ["Crush garlic"],
-           ingredients: ["Garlic": true,
-                         "Olive oil": true,
-                         "Lentils": true,
-                         "Coconut milk": true],
+    Recipe(name: "Avocado Toast",
+           description: "Avocado toast is is a delicious and simple breakfast, snack or light meal!",
+           time: 10,
+           steps: [
+            "Smash your avocado!",
+            "Top the toast with the avocado spread and fried egg.",
+            "Add salt and chilly pepper flakes and there you go!"
+           ],
+           ingredients: [
+            Ingredient(name: "Avocado", quantity: 0.5, unit: "pcs"),
+            Ingredient(name: "Poached egg", quantity: 1, unit: "pcs"),
+            Ingredient(name: "Whole wheat bread", quantity: 1, unit: "slice")
+           ],
            type: "vegan",
-           image: "Daal")
+           image: "avocado_toast")
   ]
 }

@@ -21,8 +21,7 @@ import FirebaseFirestoreSwift
 import SwiftUI
 
 struct RecipeListView: View {
-  
-  @FirestoreQuery(collectionPath: "Recipes") var recipes: [Recipe]
+  @FirestoreQuery(collectionPath: "recipes") var recipes: [Recipe]
   private var twoColumnGrid = [GridItem(.flexible()), GridItem(.flexible())]
   @State private var cachedImages : ImageCache = ImageCache()
 
@@ -34,7 +33,7 @@ struct RecipeListView: View {
             ForEach(recipes, id: \.self) { recipe in
               VStack {
                 NavigationLink(
-                  destination: DocumentDetail(recipe:recipe).analyticsScreen(name: recipe.type),
+                  destination: RecipeDetailsView2(recipe:recipe).analyticsScreen(name: recipe.type),
                   label: {
                     VStack {
                       RecipeImageView(name: recipe.name)
