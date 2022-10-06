@@ -4,26 +4,6 @@ import FirebaseAnalytics
 import FirebaseFirestoreSwift
 import SwiftUI
 
-struct Recipe: Identifiable, Hashable, Codable {
-  @DocumentID var id: String?
-  var name: String
-  var time: Int
-  var steps: [String]
-  var ingredients: [String: Bool]
-  var type: String
-  var image: String
-  
-  init(id: String? = nil, name: String = "test", time: Int = 0, steps: [String] = [], ingredients: [String : Bool] = [:], type: String="test", image: String = "test") {
-    self.id = id
-    self.name = name
-    self.time = time
-    self.steps = steps
-    self.ingredients = ingredients
-    self.type = type
-    self.image = image
-  }
-}
-
 struct ContentView: View {
   
   @FirestoreQuery(collectionPath: "Recipes") var recipes: [Recipe]

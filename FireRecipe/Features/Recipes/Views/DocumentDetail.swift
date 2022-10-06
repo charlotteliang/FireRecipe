@@ -45,7 +45,7 @@ struct DocumentDetail: View {
 
 struct DocumentDetail_Previews: PreviewProvider {
     static var previews: some View {
-      DocumentDetail(recipe:Recipe(id: "test"))
+      DocumentDetail(recipe: Recipe.samples[0])
     }
 }
 
