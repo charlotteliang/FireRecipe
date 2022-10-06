@@ -95,7 +95,7 @@ struct FireRecipeApp: App {
   
   var body: some Scene {
     WindowGroup {
-      ContentView()
+      RecipeListView()
         .analyticsScreen(name: "ContentView")
     }
   }
