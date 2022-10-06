@@ -17,6 +17,7 @@
 // limitations under the License.
 
 import SwiftUI
+import FirebaseRemoteConfig
 import FirebaseRemoteConfigSwift
 
 struct RecipeDetailsView2: View {
@@ -109,13 +110,13 @@ struct IngredientsView: View {
 }
 
 struct InstructionsView: View {
-  @RemoteConfigProperty(key: "imageName", fallback: "carrot") var imageName: String
+  @RemoteConfigProperty(key: "stepsStyle", fallback: "square") var stepsStyle: String
   var recipe: Recipe
   var body: some View {
     List {
       Section {
-        ForEach(recipe.steps, id: \.self) { step in
-          Label(step, systemImage: imageName)
+        ForEach(recipe.steps.indices, id: \.self) { index in
+          Label(recipe.steps[index], systemImage: "\(index + 1).\(stepsStyle)")
         }
       } header: {
         HStack {
@@ -128,6 +129,9 @@ struct InstructionsView: View {
     }
     .listRowSeparator(.hidden)
     .listStyle(.plain)
+    .onAppear {
+      RemoteConfig.remoteConfig().fetchAndActivate()
+    }
   }
 }
 
