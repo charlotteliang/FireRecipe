@@ -106,14 +106,22 @@ class AppDelegate: NSObject, UIApplicationDelegate {
   }
 }
 
+class NavigationRouter: ObservableObject {
+  @Published var path = NavigationPath()
+}
+
 @main
 struct FireRecipeApp: App {
   @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
+  @StateObject private var router = NavigationRouter()
   
   var body: some Scene {
     WindowGroup {
-      RecipeListView()
-        .analyticsScreen(name: "ContentView")
+      NavigationStack(path: $router.path) {
+        RecipeListView2()
+          .environmentObject(router)
+          .analyticsScreen(name: "ContentView")
+      }
     }
   }
 }

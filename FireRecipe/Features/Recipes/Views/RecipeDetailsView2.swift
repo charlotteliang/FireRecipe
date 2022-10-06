@@ -19,19 +19,18 @@
 import SwiftUI
 import FirebaseRemoteConfig
 import FirebaseRemoteConfigSwift
+import NukeUI
 
 struct RecipeDetailsView2: View {
   var recipe: Recipe
-  @Environment(\.dismiss) var dismiss
-  @State var presentSheet = true
+  @EnvironmentObject var router: NavigationRouter
+
   var body: some View {
     VStack {
-      Image("avocado_toast")
-        .resizable()
-        .scaledToFit()
-        .opacity(100)
+      LazyImage(url: recipe.imageURL, resizingMode: .aspectFill)
+        .frame(height: 300)
         .overlay(alignment: .topLeading) {
-          Button(action: {}) {
+          Button(action: { router.path.removeLast() }) {
             Image(systemName: "xmark")
               .font(.title)
               .foregroundColor(Color(UIColor.systemGray))
@@ -134,7 +133,6 @@ struct InstructionsView: View {
     }
   }
 }
-
 
 struct RecipeTitleView: View {
   var recipe: Recipe

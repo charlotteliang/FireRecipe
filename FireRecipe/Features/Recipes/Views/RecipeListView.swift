@@ -19,40 +19,49 @@ import FirebaseAnalyticsSwift
 import FirebaseAnalytics
 import FirebaseFirestoreSwift
 import SwiftUI
+import NukeUI
 
-struct RecipeListView: View {
+struct RecipeListView2: View {
   @FirestoreQuery(collectionPath: "recipes") var recipes: [Recipe]
-  private var twoColumnGrid = [GridItem(.flexible()), GridItem(.flexible())]
-  @State private var cachedImages : ImageCache = ImageCache()
+  @EnvironmentObject var router: NavigationRouter
 
   var body: some View {
-    VStack {
-      NavigationStack {
-        ScrollView(.vertical, showsIndicators: false) {
-          LazyVGrid(columns: twoColumnGrid, spacing: 10) {
-            ForEach(recipes, id: \.self) { recipe in
-              VStack {
-                NavigationLink(
-                  destination: RecipeDetailsView2(recipe:recipe).analyticsScreen(name: recipe.type),
-                  label: {
-                    VStack {
-                      RecipeImageView(name: recipe.name)
-                      Text(recipe.name)
-                    }.frame(width: 180, height: 200)
-                  }
-                ).buttonStyle(PlainButtonStyle())
-              }
+    ScrollView {
+      let cols = [GridItem(.adaptive(minimum: 150, maximum: 300), spacing: 8)]
+      LazyVGrid(columns: cols) {
+        ForEach(recipes) { recipe in
+          NavigationLink(value: recipe) {
+            VStack(alignment: .leading) {
+              LazyImage(url: recipe.imageURL, resizingMode: .aspectFill)
+                .frame(height: 200)
+                .cornerRadius(8)
+                .padding([.top, .leading, .trailing], 7)
+              Text(recipe.name)
+                .font(.headline)
+                .padding(.horizontal, 7)
+              Spacer()
             }
-            .padding(.horizontal)
-          }.navigationTitle("FireRecipe 😋")
+            .background(.regularMaterial, in: RoundedRectangle(cornerRadius: 8))
+            .cornerRadius(8)
+            .shadow(color: Color.black.opacity(0.2), radius: 5, x: 0, y: 2)
+          }
+          .buttonStyle(PlainButtonStyle())
         }
-      }.environmentObject(cachedImages)
+      }
+      .navigationDestination(for: Recipe.self) { recipe in
+        RecipeDetailsView2(recipe: recipe)
+          .environmentObject(router)
+      }
+      .padding([.horizontal], 8)
     }
+    .navigationTitle("Recipes")
   }
 }
 
 struct ContentView_Previews: PreviewProvider {
   static var previews: some View {
-    RecipeListView()
+    NavigationStack {
+      RecipeListView2()
+    }
   }
 }

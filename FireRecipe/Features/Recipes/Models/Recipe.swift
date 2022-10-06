@@ -38,6 +38,12 @@ struct Ingredient {
 extension Recipe: Codable, Identifiable, Equatable {
 }
 
+extension Recipe {
+  var imageURL: URL {
+    URL(string: image)!
+  }
+}
+
 // so we can use Array.difference
 extension Recipe: Hashable {
   func hash(into hasher: inout Hasher) {
