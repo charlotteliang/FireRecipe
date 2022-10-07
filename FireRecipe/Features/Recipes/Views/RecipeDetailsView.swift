@@ -21,7 +21,7 @@ import FirebaseRemoteConfig
 import FirebaseRemoteConfigSwift
 import NukeUI
 
-struct RecipeDetailsView2: View {
+struct RecipeDetailsView: View {
   var recipe: Recipe
   @EnvironmentObject var router: NavigationRouter
 
@@ -154,7 +154,7 @@ struct RecipeTitleView: View {
 
 struct RecipeDetailsView2_Previews: PreviewProvider {
   static var previews: some View {
-    RecipeDetailsView2(recipe: Recipe.samples[0])
+    RecipeDetailsView(recipe: Recipe.samples[0])
     RecipeView(recipe: Recipe.samples[0])
   }
 }

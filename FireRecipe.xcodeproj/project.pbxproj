@@ -12,7 +12,7 @@
 		513A031E28E4F3B600CDF5E0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 513A031D28E4F3B600CDF5E0 /* Assets.xcassets */; };
 		513A032128E4F3B600CDF5E0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 513A032028E4F3B600CDF5E0 /* Preview Assets.xcassets */; };
 		882CD02928EEB9A90024E24D /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882CD02828EEB9A90024E24D /* Recipe.swift */; };
-		882CD02B28EEC1540024E24D /* RecipeDetailsView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882CD02A28EEC1540024E24D /* RecipeDetailsView2.swift */; };
+		882CD02B28EEC1540024E24D /* RecipeDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882CD02A28EEC1540024E24D /* RecipeDetailsView.swift */; };
 		883DCBA228EDFFD200366471 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 883DCBA128EDFFD200366471 /* GoogleService-Info.plist */; };
 		884CECBF28EE008B00F3A391 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 884CECBE28EE008B00F3A391 /* FirebaseAnalytics */; };
 		884CECC128EE008B00F3A391 /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 884CECC028EE008B00F3A391 /* FirebaseAnalyticsSwift */; };
@@ -37,7 +37,7 @@
 		513A032E28E502D200CDF5E0 /* FireRecipe.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FireRecipe.entitlements; sourceTree = "<group>"; };
 		513A032F28E502F000CDF5E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		882CD02828EEB9A90024E24D /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
-		882CD02A28EEC1540024E24D /* RecipeDetailsView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailsView2.swift; sourceTree = "<group>"; };
+		882CD02A28EEC1540024E24D /* RecipeDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailsView.swift; sourceTree = "<group>"; };
 		883DCBA128EDFFD200366471 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8876734428EE03A90044577F /* firebase-ios-sdk */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "firebase-ios-sdk"; path = "../firebase-ios-sdk"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -142,7 +142,7 @@
 			isa = PBXGroup;
 			children = (
 				513A031B28E4F3B400CDF5E0 /* RecipeListView.swift */,
-				882CD02A28EEC1540024E24D /* RecipeDetailsView2.swift */,
+				882CD02A28EEC1540024E24D /* RecipeDetailsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -244,7 +244,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				513A031C28E4F3B400CDF5E0 /* RecipeListView.swift in Sources */,
-				882CD02B28EEC1540024E24D /* RecipeDetailsView2.swift in Sources */,
+				882CD02B28EEC1540024E24D /* RecipeDetailsView.swift in Sources */,
 				882CD02928EEB9A90024E24D /* Recipe.swift in Sources */,
 				513A031A28E4F3B400CDF5E0 /* FireRecipeApp.swift in Sources */,
 			);
@@ -373,12 +373,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = FireRecipe/FireRecipe.entitlements;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"FireRecipe/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = EQHXZ8M8AV;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FireRecipe/Info.plist;
@@ -395,7 +394,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.charlotteliang.firerecipe.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Google Development";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -408,12 +406,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = FireRecipe/FireRecipe.entitlements;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"FireRecipe/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = EQHXZ8M8AV;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FireRecipe/Info.plist;
@@ -430,7 +427,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.charlotteliang.firerecipe.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Google Development";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

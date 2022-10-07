@@ -118,9 +118,9 @@ struct FireRecipeApp: App {
   var body: some Scene {
     WindowGroup {
       NavigationStack(path: $router.path) {
-        RecipeListView2()
+        RecipeListView()
           .environmentObject(router)
-          .analyticsScreen(name: "ContentView")
+          .analyticsScreen(name: "Recipe List")
       }
     }
   }

@@ -21,7 +21,7 @@ import FirebaseFirestoreSwift
 import SwiftUI
 import NukeUI
 
-struct RecipeListView2: View {
+struct RecipeListView: View {
   @FirestoreQuery(collectionPath: "recipes") var recipes: [Recipe]
   @EnvironmentObject var router: NavigationRouter
 
@@ -49,8 +49,9 @@ struct RecipeListView2: View {
         }
       }
       .navigationDestination(for: Recipe.self) { recipe in
-        RecipeDetailsView2(recipe: recipe)
+        RecipeDetailsView(recipe: recipe)
           .environmentObject(router)
+          .analyticsScreen(name: "Recipe Details", extraParameters: ["recipe_type": recipe.type])
       }
       .padding([.horizontal], 8)
     }
@@ -61,7 +62,7 @@ struct RecipeListView2: View {
 struct ContentView_Previews: PreviewProvider {
   static var previews: some View {
     NavigationStack {
-      RecipeListView2()
+      RecipeListView()
     }
   }
 }
