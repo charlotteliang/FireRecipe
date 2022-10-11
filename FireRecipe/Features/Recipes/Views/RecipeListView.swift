@@ -28,22 +28,10 @@ struct RecipeListView: View {
   var body: some View {
     ScrollView {
       let cols = [GridItem(.adaptive(minimum: 150, maximum: 300), spacing: 8)]
-      LazyVGrid(columns: cols) {
+      LazyVGrid(columns: cols, spacing: 8) {
         ForEach(recipes) { recipe in
           NavigationLink(value: recipe) {
-            VStack(alignment: .leading) {
-              LazyImage(url: recipe.imageURL, resizingMode: .aspectFill)
-                .frame(height: 200)
-                .cornerRadius(8)
-                .padding([.top, .leading, .trailing], 7)
-              Text(recipe.name)
-                .font(.headline)
-                .padding(.horizontal, 7)
-              Spacer()
-            }
-            .background(.regularMaterial, in: RoundedRectangle(cornerRadius: 8))
-            .cornerRadius(8)
-            .shadow(color: Color.black.opacity(0.2), radius: 5, x: 0, y: 2)
+            RecipeTileView(recipe: recipe)
           }
           .buttonStyle(PlainButtonStyle())
         }
@@ -59,10 +47,41 @@ struct RecipeListView: View {
   }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct RecipeListView_Previews: PreviewProvider {
   static var previews: some View {
     NavigationStack {
       RecipeListView()
     }
+  }
+}
+
+struct RecipeTileView: View {
+  var recipe: Recipe
+
+  var body: some View {
+    VStack(alignment: .leading) {
+      LazyImage(url: recipe.imageURL, resizingMode: .aspectFill)
+        .frame(height: 200)
+        .cornerRadius(8)
+        .padding([.top, .leading, .trailing], 7)
+      HStack(alignment: .top) {
+        Text(recipe.name)
+          .font(.headline)
+          .padding(.horizontal, 7)
+        if (recipe.type == "vegan") {
+          Spacer()
+          Text("🌱")
+            .padding(.trailing, 4)
+        }
+      }
+      Label("\(recipe.time) Min", systemImage: "clock")
+        .font(.subheadline)
+        .padding(.vertical, 2)
+        .padding(.horizontal, 7)
+      Spacer()
+    }
+    .background(.regularMaterial, in: RoundedRectangle(cornerRadius: 8))
+    .cornerRadius(8)
+    .shadow(color: Color.black.opacity(0.2), radius: 5, x: 0, y: 2)
   }
 }
